@@ -1,13 +1,13 @@
 import React from "react";
-import { useGlobalContex } from "./context";
-import Photo from "../Photo";
+import { useGlobalContext } from "./context";
+import Photo from "./Photo";
 
-const List = () => {
-  const { isLoading, list } = useGlobalContex();
-  return (
-    <section className="photos">
+const List = ()=>{
+    const {isLoading,photos}=useGlobalContext();
+    return(
+        <section className="photos">
       <div className="photos-center">
-        {list.map((item) => {
+        {photos.map((item) => {
           return (
             <Photo
               id={item.id}
@@ -18,7 +18,7 @@ const List = () => {
       </div>
       {isLoading&& <h1>LOADIN ...</h1> }
     </section>
-  );
-};
+    )
+}
 
 export default List;
